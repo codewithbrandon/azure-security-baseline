@@ -294,9 +294,8 @@ def check_your_condition(nsg, rule, findings: list) -> None:
 ## Author
 
 **Brandon** — Independent Security Architect
-Former Top Secret Cleared Investigator | CompTIA Security+ | RHCSA | Azure Cloud Engineer (in pursuit)
+Former Top Secret Cleared Investigator | CompTIA Security+ | RHCSA | Azure Cloud Engineer 
 
-Available for security architecture engagements. [Connect on LinkedIn](https://linkedin.com/in/your-handle)
 
 ---
 
