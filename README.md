@@ -16,7 +16,7 @@ Built for security architects who need to show clients exactly what "misconfigur
 
 Most Azure environments are deployed fast and secured slowly. The gap between those two events is where breaches happen.
 
-This project makes that gap visible. It provisions a realistic three-tier Azure environment with intentional, documented misconfigurations — the same ones found repeatedly in real breach investigations — then runs an automated audit that classifies every finding by severity, maps it to a MITRE ATT&CK technique, and produces a client-ready remediation report.
+This project makes that gap visible. It provisions a realistic three-tier Azure environment with intentional, documented misconfigurations, the same ones found repeatedly in real breach investigations, then runs an automated audit that classifies every finding by severity, maps it to a MITRE ATT&CK technique, and produces a client-ready remediation report.
 
 **The output is not a compliance checkbox. It is proof that the analyst understands what the misconfiguration means and how to fix it.**
 
@@ -171,7 +171,7 @@ Output:
              Type: OPEN_HIGH_RISK_PORT
   ...
 
-  STATUS: FAIL — Critical findings require immediate remediation before deployment.
+  STATUS: FAIL  Critical findings require immediate remediation before deployment.
 ======================================================================
 ```
 
@@ -191,7 +191,7 @@ The report includes an executive summary with a risk score, per-finding detail w
 ```
 azure-security-baseline/
 ├── terraform/
-│   ├── main.tf                     # Root module — resource group and module calls
+│   ├── main.tf                     # Root module: resource group and module calls
 │   ├── variables.tf                # Input variables with validation
 │   ├── outputs.tf                  # Outputs including the audit command
 │   ├── providers.tf                # AzureRM, AzureAD, and Random providers
@@ -202,7 +202,7 @@ azure-security-baseline/
 │       └── security/               # Defender for Cloud and policy assignments
 │
 ├── scripts/
-│   ├── nsg_analyzer.py             # Audit engine — connects to Azure and runs all checks
+│   ├── nsg_analyzer.py             # Audit engine: connects to Azure and runs all checks
 │   ├── generate_report.py          # Converts JSON findings into a Markdown report
 │   └── requirements.txt
 │
@@ -210,7 +210,7 @@ azure-security-baseline/
 │   └── findings_template.md        # Hand-editable report with annotated example findings
 │
 ├── .github/workflows/
-│   └── security-audit.yml          # CI pipeline — lint, validate, live audit, artifact upload
+│   └── security-audit.yml          # CI pipeline: lint, validate, live audit, artifact upload
 │
 └── Makefile                        # Targets: init, plan, apply, audit, report, lint, destroy
 ```
@@ -254,10 +254,10 @@ Risk Score = (CRITICAL × 10) + (HIGH × 5) + (MEDIUM × 2) + (LOW × 1)
 
 | Score | Rating |
 |-------|--------|
-| 30+ | CRITICAL RISK — Immediate action required |
-| 15 to 29 | HIGH RISK — Remediate within 72 hours |
-| 5 to 14 | MEDIUM RISK — Address in the next sprint |
-| 1 to 4 | LOW RISK — Planned maintenance window |
+| 30+ | CRITICAL RISK: Immediate action required |
+| 15 to 29 | HIGH RISK: Remediate within 72 hours |
+| 5 to 14 | MEDIUM RISK: Address in the next sprint |
+| 1 to 4 | LOW RISK: Planned maintenance window |
 | 0 | PASS |
 
 ---
@@ -277,7 +277,7 @@ def check_your_condition(nsg, rule, findings: list) -> None:
             severity="HIGH",
             finding_type="YOUR_FINDING_TYPE",
             description="What is misconfigured and what an attacker can do with it.",
-            mitre_technique="T1XXX — Technique Name",
+            mitre_technique="T1XXX: Technique Name",
             remediation="Concrete steps to resolve the finding.",
         ))
 ```
@@ -286,15 +286,15 @@ def check_your_condition(nsg, rule, findings: list) -> None:
 
 ## Related Projects
 
-- [cloud-threat-detection](https://github.com/codewithbrandon/cloud-threat-detection) — Kubernetes-native threat detection platform with Falco, Prometheus, and Loki
-- [secure-cloud-platform](https://github.com/codewithbrandon/secure-cloud-platform) — Policy-enforced DevSecOps pipeline with OPA/Conftest and a 19-stage Jenkins CI workflow
+- [cloud-threat-detection](https://github.com/codewithbrandon/cloud-threat-detection): Kubernetes-native threat detection platform with Falco, Prometheus, and Loki
+- [secure-cloud-platform](https://github.com/codewithbrandon/secure-cloud-platform): Policy-enforced DevSecOps pipeline with OPA/Conftest and a 19-stage Jenkins CI workflow
 
 ---
 
 ## Author
 
-**Brandon** — Independent Security Architect
-Former Top Secret Cleared Investigator | CompTIA Security+ | RHCSA | Azure Cloud Engineer 
+**Brandon**, Independent Security Architect
+Former Top Secret Cleared Investigator | CompTIA Security+ | RHCSA | Azure Cloud Engineer
 
 
 ---
