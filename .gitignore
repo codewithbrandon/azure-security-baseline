@@ -1,0 +1,42 @@
+# Terraform state — NEVER commit; contains sensitive resource details
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+*.tfplan
+tfplan.json
+
+# Terraform variable files — may contain credentials or environment-specific values
+*.tfvars
+*.tfvars.json
+!example.tfvars
+
+# Audit reports — contain environment-specific findings; keep out of public repos
+reports/findings.json
+reports/findings-*.json
+reports/AUDIT-*.md
+
+# Azure credentials — should never be in source control
+.azure/
+*.pem
+*.key
+service_principal.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp

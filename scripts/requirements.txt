@@ -1,0 +1,9 @@
+# Azure SDK — authentication and resource management
+azure-identity>=1.15.0
+azure-mgmt-network>=25.0.0
+azure-mgmt-resource>=23.0.0
+
+# Development and testing
+pytest>=8.0.0
+pytest-cov>=4.1.0
+ruff>=0.3.0
